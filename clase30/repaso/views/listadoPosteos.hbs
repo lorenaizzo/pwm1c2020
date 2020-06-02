@@ -1,0 +1,25 @@
+<h1>Lista de los ultimos posteos</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Estado de animo</th>
+            <th>Post</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each posteos}}
+            <tr>
+                <td>{{this.nombre}}</td>
+                <td>{{this.estado}}</td>
+                <td>{{this.post}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+
+{{#if error}}
+    <h2>Hubo errores {{error}}</h2>
+{{/if}}
+

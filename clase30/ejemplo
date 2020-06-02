@@ -1,0 +1,39 @@
+> npm intall nodemailer
+
+//Incorporamos el paquete
+var nodemailer = require('nodemailer');
+
+//Creamos el objeto de transporte
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'tucorreo@gmail.com',
+        pass: 'tuclave'
+    }
+});
+
+var mensaje = "Hola desde nodejs...";
+
+
+
+
+//Creamos el objeto de opciones de envio
+var mailOptions = {
+    from: 'tucorreo@gmail.com',
+    to: 'mi-amigo@yahoo.com.ar',
+    subject: 'Asunto del correo',
+    text: mensaje
+};
+
+//Enviamos el mail
+transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+        console.log(error);
+    }
+    else {
+        console.log('Email enviado: '+ info.response);
+    }
+});
+
+
+
